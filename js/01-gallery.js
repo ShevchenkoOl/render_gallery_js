@@ -16,43 +16,24 @@ const imagesContainer = document.querySelector(".gallery");
 const galleryList = galleryItems.map(galleryItem => galleryTemplate(galleryItem)).join('');
 imagesContainer.insertAdjacentHTML("afterbegin", galleryList);
 
-//-------------------Modal window need to fix--------------------------
+//-------------------Modal window --------------------------
 
-imagesContainer.addEventListener('click', onImageHandleClick);
-const instance = {
-    openImageInModal (image) {
-        const instance = basicLightbox.create(`
-            <div class="modal">
-                <img src="${image.dataset.source}"/>
-            </div>`);
-        instance.show();
-    },
-    closeModal() {
-        document.addEventListener("keydown", (e) => {
-            if (e.key === "Escape") {
-                console.log(e);
-                instance.close();
-            }
-        })
-    }
-}
-function onImageHandleClick (evt){
-    evt.preventDefault();
-    const isImage = evt.target.classList.contains('gallery__image');
-    if ( !isImage ) {return};
-    const activeImage = evt.target;
-   instance.openImageInModal(activeImage);
-    instance.closeModal();
-} 
+imagesContainer.addEventListener('click', e => {
+    e.preventDefault();
+    if (e.target.nodeName !== 'IMG') {
+		return
+	}
 
+    const selectedImage = e.target.getAttribute('data-source')
 
-// const instance = basicLightbox.create(`
-//     <div class="modal">
-//         <p>
-//             Your first lightbox with just a few lines of code.
-//             Yes, it's really that simple.
-//         </p>
-//     </div>
-// `)
-
-// instance.show();
+    const instance = basicLightbox.create(`
+    <img src="${selectedImage}">
+`)
+    instance.show()
+    
+    imagesContainer.addEventListener('keydown', e => {
+		if (e.key === 'Escape') {
+			instance.close()
+		}
+	})
+})
