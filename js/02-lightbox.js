@@ -15,3 +15,4 @@ new SimpleLightbox('.gallery a', {
 	captionDelay: 250
 })
 
+//export {galleryTemplate}
