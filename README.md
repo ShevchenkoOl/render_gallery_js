@@ -9,3 +9,5 @@ Perform this task in files 01-gallery.html and 01-gallery.js. Break it down into
 
 # Task 2 - SimpleLightbox library
 Make the same gallery as in the first task, but using the SimpleLightbox library, which will handle image clicks, opening and closing the modal window, and scrolling images using the keyboard.
+
+## Attention! The above-mentioned libraries are connected with the help of a CDN, the connection of which is not used now. Now we use npm or yarn
