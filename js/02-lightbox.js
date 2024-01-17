@@ -11,7 +11,7 @@ const gallaryTemlate = ({preview, original, description }) => `
 const galleryList = galleryItems.map(item => gallaryTemlate(item)).join('');
 list.insertAdjacentHTML('afterbegin', galleryList);
 
-const lightbox = new SimpleLightbox('.gallery a', {
+new SimpleLightbox('.gallery a', {  // .gallery - it is class name, a - it is tag
     captionsData: "alt",
     captionDelay: 250,
     close: true
