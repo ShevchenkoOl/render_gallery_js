@@ -14,5 +14,6 @@ list.insertAdjacentHTML('afterbegin', galleryList);
 new SimpleLightbox('.gallery a', {  // .gallery - it is class name, a - it is tag
     captionsData: "alt",
     captionDelay: 250,
-    close: true
+    close: true,
+   captionPosition: 'top'
    });
